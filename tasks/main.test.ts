@@ -1,5 +1,5 @@
-import { test } from '@playwright/test';
-import {existsSync, writeFileSync} from 'node:fs'
+import { Page, test } from '@playwright/test';
+import { existsSync, writeFileSync } from 'node:fs'
 
 type Post = {
   title: string
@@ -26,12 +26,12 @@ function getFilename(post: Post) {
   return `${post.title}.json`
 }
 
-function savePost(filename, post) {
+function savePost(filename: string, post: Post) {
   const content = JSON.stringify(post, null, 2)
   writeFileSync(filename, content)
 }
 
-async function getPosts(page): Promise<Post[]> {
+async function getPosts(page: Page): Promise<Post[]> {
   await page.goto('https://mimorin2014.com/blog-category-6.html');
   const posts = await page
     .locator('.entry.list_content:has(> .entry_body)')
