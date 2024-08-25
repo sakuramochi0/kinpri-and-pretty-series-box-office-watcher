@@ -33,7 +33,7 @@ function savePost(filename: string, post: Post) {
 
 async function getPosts(page: Page): Promise<Post[]> {
   await page.goto('https://mimorin2014.com/blog-category-6.html');
-  const posts = await page
+  return await page
     .locator('.entry.list_content:has(> .entry_body)')
     .evaluateAll(div => div
       .filter(e => !e.textContent.match(/中間集計|25分前/))
@@ -43,6 +43,5 @@ async function getPosts(page: Page): Promise<Post[]> {
         body: e.querySelector('.entry_body').textContent.trim(),
       }))
     )
-  return posts;
 }
 
