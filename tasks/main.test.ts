@@ -9,7 +9,7 @@ type Post = {
 
 
 test('collect box office data from mimorin2014.com', async ({ page }) => {
-   const posts = await getPosts(page)
+  const posts = await getPosts(page)
   for (const post of posts) {
     const filename = getFilename(post)
     if (existsSync(filename)) {
