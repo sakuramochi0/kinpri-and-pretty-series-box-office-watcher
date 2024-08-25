@@ -1,0 +1,16 @@
+{
+  "name": "kinpri-box-office-watcher",
+  "version": "1.0.0",
+  "description": "Collect and visualize the box office of the KING OF PRISM movies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test --ui --debug"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "@playwright/test": "^1.46.1",
+    "@types/node": "^22.5.0"
+  }
+}
