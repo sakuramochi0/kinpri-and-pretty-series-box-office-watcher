@@ -1,11 +1,7 @@
 import { Page, test } from '@playwright/test';
 import { existsSync, writeFileSync } from 'node:fs'
 
-type Post = {
-  title: string
-  date: Date
-  body: string
-}
+import { Post } from './types';
 
 
 test('collect box office data from mimorin2014.com', async ({ page }) => {
