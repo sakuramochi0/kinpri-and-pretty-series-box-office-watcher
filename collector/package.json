@@ -4,7 +4,8 @@
   "description": "Collect and visualize the box office of the KING OF PRISM movies.",
   "main": "index.js",
   "scripts": {
-    "test": "playwright test --ui --debug"
+    "start": "playwright test",
+    "dev": "playwright test --ui --debug"
   },
   "keywords": [],
   "author": "",
