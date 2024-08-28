@@ -8,8 +8,9 @@ test('collect box office data from mimorin2014.com', async ({ page }) => {
   const posts = await getPosts(page)
   for (const post of posts) {
     const filename = getFilename(post)
+    console.log(filename)
     if (existsSync(filename)) {
-      console.log(`skipping as file exists: ${filename}`)
+      console.log('skipped as file exists...')
       continue
     }
     console.log(post)
