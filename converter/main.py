@@ -7,13 +7,15 @@ import pandas as pd
 
 
 def main():
-    path = Path('../data/')
+    path = Path('../data/raw/')
     for filename in path.glob('*.json'):
         print(filename)
-        convert_json(filename)
+        df = convert_json(filename)
+        new_filename = Path('../data/converted/').joinpath(filename.name)
+        df.to_json(new_filename, orient='records', indent=2, force_ascii=False)
 
 
-def convert_json(filename: Path):
+def convert_json(filename: Path) -> pd.DataFrame:
     with open(filename) as f:
         data = json.load(f)
     records = []
@@ -31,8 +33,7 @@ def convert_json(filename: Path):
         }
         records.append(record)
 
-    df = pd.DataFrame.from_dict(records)
-    df.to_csv(filename.with_suffix('.csv'), index=False)
+    return pd.DataFrame.from_records(records)
 
 
 def clean_text(text):
