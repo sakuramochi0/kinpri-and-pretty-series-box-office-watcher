@@ -16,10 +16,11 @@ def main():
 def convert_json(filename: Path):
     with open(filename) as f:
         data = json.load(f)
-    t = []
-    for row in data['body'][2:-1]:
-        rank, sales, total_seats, shows, theaters, since_last_week, name = map(clean_text, row.split(maxsplit=6))
-        d = {
+    records = []
+
+    for raw_record in data['body'][2:-1]:
+        rank, sales, total_seats, shows, theaters, since_last_week, name = map(clean_text, raw_record.split(maxsplit=6))
+        record = {
             'rank': rank,
             'sales': sales,
             'total_seats': total_seats,
@@ -28,8 +29,9 @@ def convert_json(filename: Path):
             'since_last_week': since_last_week,
             'name': name,
         }
-        t.append(d)
-    df = pd.DataFrame.from_dict(t)
+        records.append(record)
+
+    df = pd.DataFrame.from_dict(records)
     df.to_csv(filename.with_suffix('.csv'), index=False)
 
 
