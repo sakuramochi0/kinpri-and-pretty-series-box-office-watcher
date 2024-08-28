@@ -8,7 +8,7 @@ import zenhan
 import pandas as pd
 
 FILM_NAME = 'KING OF PRISM'
-CONVERTED_JSON_FILENAME = 'kinpri-dramatic-prism-1.json'
+OUTPUT_FILE_BASENAME = 'kinpri-dramatic-prism-1'
 
 
 def main():
@@ -23,9 +23,11 @@ def main():
         'records': records,
     }
 
-    new_filename = Path(f'../data/converted/{CONVERTED_JSON_FILENAME}')
+    new_filename = Path(f'../data/converted/{OUTPUT_FILE_BASENAME}.json')
     with open(new_filename, 'w') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
+
+    pd.json_normalize(records).to_csv(f'../data/converted/{OUTPUT_FILE_BASENAME}.csv', index=False)
 
 
 def pick_up_target_film_record(filename: Path) -> Dict[str, Dict[str, int | float | str] | None]:
