@@ -48,7 +48,7 @@ def clean_text(text):
 
         # for film name
         clean_text = zenhan.z2h(clean_text, mode=zenhan.ASCII | zenhan.DIGIT)
-        clean_text = re.sub(r'<div>.+</div>', '', clean_text) # JavaScript can insert <div> element
+        clean_text = re.sub(r'<div>.+</div>', '', clean_text)  # JavaScript can insert <div> element
         return clean_text
 
 
