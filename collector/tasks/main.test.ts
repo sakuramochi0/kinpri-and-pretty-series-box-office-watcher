@@ -37,7 +37,7 @@ async function getPosts(page: Page, pageNumber: number = 0): Promise<Post[]> {
         date: new Date(e.querySelector('.entry_date').textContent.trim()),
         body: e.querySelector('.entry_body').innerHTML.trim().split('<br>'),
       }))
-      .filter(({title}) => title.match(/合算/))
-      .filter(({title}) => !title.match(/中間集計|25分前|前日集計/))
+      .filter(({ title }) => title.match(/合算/))
+      .filter(({ title }) => !title.match(/中間集計|25分前|前日集計/))
     )
 }
