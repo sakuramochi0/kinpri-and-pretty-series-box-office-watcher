@@ -34,6 +34,7 @@ async function getPosts(page: Page, pageNumber: number = 0): Promise<Post[]> {
     .locator('.entry.list_content:has(> .entry_body)')
     .evaluateAll(div => div
       .map(e => ({
+        url: (e.querySelector('.entry_more a') as HTMLLinkElement).href,
         title: e.querySelector('.entry_header').textContent.trim(),
         date: new Date(e.querySelector('.entry_date').textContent.trim()),
         body: e.querySelector('.entry_body').innerHTML.trim().split('<br>'),
