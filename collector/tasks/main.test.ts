@@ -19,7 +19,7 @@ test('collect box office data from mimorin2014.com', async ({ page }) => {
 });
 
 function getFilename(post: Post) {
-  return `data/${post.title}.json`
+  return `../data/${post.title}.json`
 }
 
 function savePost(filename: string, post: Post) {
