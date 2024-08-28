@@ -27,8 +27,8 @@ function savePost(filename: string, post: Post) {
   writeFileSync(filename, content)
 }
 
-async function getPosts(page: Page): Promise<Post[]> {
-  await page.goto('https://mimorin2014.com/?cat=6&page=0');
+async function getPosts(page: Page, pageNumber: number = 0): Promise<Post[]> {
+  await page.goto(`https://mimorin2014.com/?cat=6&page=${pageNumber}`);
   return await page
     .locator('.entry.list_content:has(> .entry_body)')
     .evaluateAll(div => div
