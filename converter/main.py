@@ -61,8 +61,11 @@ def make_record(body) -> Dict[str, int | float | str] | None:
             'name': name,
         }
         records.append(record)
-    df = pd.DataFrame.from_records(records)
 
+    if not records:
+        return None
+
+    df = pd.DataFrame.from_records(records)
     kinpri_record = df[df.name.str.contains(FILM_NAME)]
     if len(kinpri_record) == 0:
         return None
