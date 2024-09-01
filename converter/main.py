@@ -49,7 +49,7 @@ def make_record(body) -> Dict[str, int | float | str] | None:
     """Make record field."""
 
     records = []
-    for raw_record in body[2:-1]:
+    for raw_record in body[2:]:
         rank, sales, total_seats, shows, theaters, since_last_week, name = map(clean_text, raw_record.split(maxsplit=6))
         record = {
             'rank': rank,
