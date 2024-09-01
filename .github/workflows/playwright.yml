@@ -1,17 +1,16 @@
 name: Playwright Tests
 on:
-#  push:
-#    branches: [ main ]
-#  pull_request:
-#    branches: [ main ]
+  push:
+    branches: [ main ]
   workflow_dispatch:
+  schedule:
+  - cron: '0 16 * * *' # 16:00 UTC == 1:00 JST
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: collector/
+    permissions:
+      contents: write
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
@@ -19,13 +18,34 @@ jobs:
         node-version: lts/*
     - name: Install dependencies
       run: npm install -g pnpm && pnpm install
+      working-directory: collector/
     - name: Install Playwright Browsers
       run: pnpm exec playwright install --with-deps chromium
+      working-directory: collector/
     - name: Run Playwright tests
       run: pnpm exec playwright test
+      working-directory: collector/
     - uses: actions/upload-artifact@v4
       if: always()
       with:
         name: playwright-report
-        path: playwright-report/
+        path: collector/playwright-report/
         retention-days: 30
+
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+        cache: 'pip' # caching pip dependencies
+        cache-dependency-path: '**/requirements*.txt'
+    - run: pip install -r requirements.txt
+      working-directory: converter/
+    - name: convert data
+      run: python main.py
+      working-directory: converter/
+
+    - name: commit and push
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git diff --quiet || (git add . && git commit -m "chore: update latest data")
+        git push
