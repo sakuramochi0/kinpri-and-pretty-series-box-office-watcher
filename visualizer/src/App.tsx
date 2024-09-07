@@ -88,8 +88,8 @@ function makeRecordRow(record: Record) {
   return <tr>
     <td>{new Date(record_date).toISOString().slice(0, 10)}</td>
     <td>{rank}</td>
-    <td>{sales}</td>
-    <td>{total_seats}</td>
+    <td>{sales.toLocaleString()}</td>
+    <td>{total_seats.toLocaleString()}</td>
     <td>{shows}</td>
     <td>{theaters}</td>
     <td>{sinceLastWeekString}</td>
