@@ -24,6 +24,8 @@ function App() {
     .sort((r1, r2) => r1.meta.record_date > r2.meta.record_date ? 1 : -1)
     .filter(r => r.meta.title.startsWith('（独立系を含む）デイリー合算ランキング'))
 
+  const lastRecord = records.slice(-1)[0]
+
   return (
     <>
       <h1>『KING OF PRISM -Dramatic PRISM.1-』の販売座席数と興行収入</h1>
@@ -35,6 +37,19 @@ function App() {
         target="_blank" href="https://www.takaratomy-arts.co.jp/specials/prettyseries/">プリティーシリーズ</a>の映画の座席販売数・興行収入の変化を表やグラフで確認できるようにしたページです。販売座席数のテーブルは1日1回自動更新されます。現在は『<a
         href="https://kinpri.com/">KING OF PRISM -Dramatic PRISM.1-</a>』に対応しています。
       </p>
+      <h2>最新データ</h2>
+      <ul>
+        <dl>
+          <dt>日付</dt>
+          <dd>{formatDate(lastRecord.meta.record_date)}</dd>
+          <dt>販売座席数（先週比）</dt>
+          <dd>{lastRecord.record.sales}座席（{lastRecord.record.since_last_week}%）</dd>
+          <dt>累積販売数</dt>
+          <dd>{lastRecord.record.cumulative_sales?.toLocaleString()}座席</dd>
+          <dt>推定興行収入</dt>
+          <dd>{formatEstimatedBoxOffice(lastRecord.record.estimated_box_office)}</dd>
+        </dl>
+      </ul>
       <h2>座席販売数と先週比のグラフ（仮）</h2>
       <iframe width="900" height="540"
               src='https://docs.google.com/spreadsheets/d/e/2PACX-1vQK4EQdeuxlXz1Iy3RDWbAP0v1KYJDpFMWVGr6wguoPRl-9kMa5LA_ZaJcBM8uEHKKB1WLH38ZgpWOj/pubchart?oid=1244534495&format=interactive'></iframe>
@@ -96,12 +111,10 @@ function makeRecordRow(record: Record) {
     ? '-'
     : `${since_last_week.toFixed(0)}%`
 
-  const estimatedBoxOfficeString = typeof estimated_box_office === 'string' || !estimated_box_office
-    ? '-'
-    : `${(estimated_box_office / 10_000).toLocaleString('us', {maximumFractionDigits: 0})}万円`
+  const estimatedBoxOfficeString = formatEstimatedBoxOffice(estimated_box_office)
 
   return <tr>
-    <td>{formatDate(record_date) ?? '-'}</td>
+    <td>{formatDate(record_date)}</td>
     <td>{rank ?? '-'}</td>
     <td>{sales?.toLocaleString() ?? '-'}</td>
     <td>{sinceLastWeekString ?? '-'}</td>
@@ -112,6 +125,14 @@ function makeRecordRow(record: Record) {
     <td>{cumulative_sales?.toLocaleString() ?? '-'}</td>
     <td>{estimatedBoxOfficeString}</td>
   </tr>
+}
+
+function formatEstimatedBoxOffice(estimatedBoxOffice: string | null) {
+  if (typeof estimatedBoxOffice === 'string' || !estimatedBoxOffice) {
+    return '-'
+  }
+
+   return `${(estimatedBoxOffice / 10_000).toLocaleString('us', {maximumFractionDigits: 0})}万円`
 }
 
 export default App
