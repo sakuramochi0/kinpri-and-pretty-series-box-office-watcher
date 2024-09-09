@@ -90,18 +90,18 @@ function makeRecordRow(record: Record) {
     record: { rank, sales, shows, since_last_week, theaters, total_seats }
   } = record
 
-  const sinceLastWeekString = typeof since_last_week === 'string'
+  const sinceLastWeekString = typeof since_last_week === 'string' || !since_last_week
     ? '-'
     : `${since_last_week.toFixed(0)}%`
 
   return <tr>
-    <td>{formatDate(record_date)}</td>
-    <td>{rank}</td>
-    <td>{sales.toLocaleString()}</td>
-    <td>{total_seats.toLocaleString()}</td>
-    <td>{shows}</td>
-    <td>{theaters}</td>
-    <td>{sinceLastWeekString}</td>
+    <td>{formatDate(record_date) ?? '-'}</td>
+    <td>{rank ?? '-'}</td>
+    <td>{sales?.toLocaleString() ?? '-'}</td>
+    <td>{total_seats?.toLocaleString() ?? '-'}</td>
+    <td>{shows ?? '-'}</td>
+    <td>{theaters ?? '-'}</td>
+    <td>{sinceLastWeekString ?? '-'}</td>
     <td><a href={url} target='_blank'>Source</a></td>
   </tr>
 }
