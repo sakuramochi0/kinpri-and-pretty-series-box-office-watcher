@@ -26,13 +26,12 @@ function App() {
     <>
       <h1>『KING OF PRISM -Dramatic PRISM.1-』の販売座席数と興行収入</h1>
       <p>
-        最終更新日時: {new Intl.DateTimeFormat('ja', {
-        dateStyle: 'long',
-        timeStyle: 'long'
-      }).format(new Date(data.updated + 'Z'))}
+        最終更新日時: {formatDate(data.updated + 'Z', true)}
       </p>
       <p>
-        このページは、<a target="_blank" href="https://mimorin2014.com/">興行収入を見守りたい！</a>さんが公開している座席販売数のデータをもとに、<a target="_blank" href="https://www.takaratomy-arts.co.jp/specials/prettyseries/">プリティーシリーズ</a>の映画の座席販売数・興行収入の変化を表やグラフで確認できるようにしたページです。販売座席数のテーブルは1日1回自動更新されます。現在は『<a href="https://kinpri.com/">KING OF PRISM -Dramatic PRISM.1-</a>』に対応しています。
+        このページは、<a target="_blank" href="https://mimorin2014.com/">興行収入を見守りたい！</a>さんが公開している座席販売数のデータをもとに、<a
+        target="_blank" href="https://www.takaratomy-arts.co.jp/specials/prettyseries/">プリティーシリーズ</a>の映画の座席販売数・興行収入の変化を表やグラフで確認できるようにしたページです。販売座席数のテーブルは1日1回自動更新されます。現在は『<a
+        href="https://kinpri.com/">KING OF PRISM -Dramatic PRISM.1-</a>』に対応しています。
       </p>
       <h2>座席販売数と先週比のグラフ（仮）</h2>
       <iframe width="900" height="540"
@@ -71,6 +70,16 @@ function App() {
   )
 }
 
+function formatDate(dateString: string, includeTime: Boolean = false) {
+  const date = new Date(dateString);
+  const day = new Intl.DateTimeFormat('ja-JP', { dateStyle: 'short' }).format(date)
+  const weekday = new Intl.DateTimeFormat('ja-JP', { weekday: 'short' }).format(date)
+  const time = new Intl.DateTimeFormat('ja', {
+    timeStyle: 'long'
+  }).format(date)
+  return `${day}(${weekday})${includeTime ? ` ${time}` : ''}`
+}
+
 function makeRecordRow(record: Record) {
   if (record.record == null) {
     return <></>
@@ -86,7 +95,7 @@ function makeRecordRow(record: Record) {
     : `${since_last_week.toFixed(0)}%`
 
   return <tr>
-    <td>{new Date(record_date).toISOString().slice(0, 10)}</td>
+    <td>{formatDate(record_date)}</td>
     <td>{rank}</td>
     <td>{sales.toLocaleString()}</td>
     <td>{total_seats.toLocaleString()}</td>
