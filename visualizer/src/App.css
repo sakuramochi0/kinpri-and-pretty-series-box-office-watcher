@@ -7,3 +7,19 @@
 body {
   font-size: 0.9em;
 }
+
+#latest-data {
+  display: inline-flex;
+  flex-wrap: wrap;
+
+  & > div {
+    list-style: none;
+    font-size: larger;
+    width: 20rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    background: #ffd8e5;
+    border: solid 3px #ff9abc;
+    border-radius: 0.5rem;
+  }
+}
