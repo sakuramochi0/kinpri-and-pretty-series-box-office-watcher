@@ -23,6 +23,8 @@ def main():
             records.append(record)
     df = pd.json_normalize(records)
 
+    df['record.cumulative_sales'] = df['record.sales'].cumsum()
+
     df.to_csv(CSV_FILENAME, index=False)
 
     data = {
