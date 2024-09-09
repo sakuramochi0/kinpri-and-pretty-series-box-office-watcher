@@ -10,12 +10,10 @@ function App() {
   const headers = [
     '日付',
     '順位',
-    '販売座席数',
-    '(先週比)',
+    '販売座席数（先週比）',
     '合計座席数',
     '上映回数',
     '上映館数',
-    'ソース',
     '累積販売数',
     '推定興行収入',
   ]
@@ -28,7 +26,7 @@ function App() {
 
   return (
     <>
-      <h1>📊プリティーシリーズの映画の座席販売数・興行収入</h1>
+      <h1>📊プリティーシリーズの映画の座席販売数と興行収入</h1>
       <p>
         最終更新日時: {formatDate(data.updated + 'Z', true)}
       </p>
@@ -43,15 +41,15 @@ function App() {
       </p>
       <h2>最新データ</h2>
       <div id="latest-data">
-          <div>日付<br/>{formatDate(lastRecord.meta.record_date)}</div>
-          <div>販売座席数（先週比）<br/>{lastRecord.record.sales}座席（{lastRecord.record.since_last_week}%）</div>
-          <div>累積販売数<br/>{lastRecord.record.cumulative_sales?.toLocaleString()}座席</div>
-          <div>推定興行収入<br/>{formatEstimatedBoxOffice(lastRecord.record.estimated_box_office)}</div>
+        <div>日付<br/>{formatDate(lastRecord.meta.record_date)}</div>
+        <div>販売座席数（先週比）<br/>{lastRecord.record.sales}座席（{lastRecord.record.since_last_week}%）</div>
+        <div>累積販売数<br/>{lastRecord.record.cumulative_sales?.toLocaleString()}座席</div>
+        <div>推定興行収入<br/>{formatEstimatedBoxOffice(lastRecord.record.estimated_box_office)}</div>
       </div>
       <h2>座席販売数と先週比のグラフ（仮）</h2>
       <iframe width="900" height="540"
               src='https://docs.google.com/spreadsheets/d/e/2PACX-1vQK4EQdeuxlXz1Iy3RDWbAP0v1KYJDpFMWVGr6wguoPRl-9kMa5LA_ZaJcBM8uEHKKB1WLH38ZgpWOj/pubchart?oid=1244534495&format=interactive'></iframe>
-      <h2>座席販売数のテーブル</h2>
+      <h2>データテーブル</h2>
       <div className="card">
         <table>
           <thead>
@@ -60,7 +58,7 @@ function App() {
           </tr>
           </thead>
           <tbody>
-          {records.map(record => makeRecordRow(record))}
+          {records.map((record, index) => makeRecordRow(record, index + 1))}
           </tbody>
         </table>
       </div>
@@ -95,7 +93,7 @@ function formatDate(dateString: string, includeTime: Boolean = false) {
   return `${day}(${weekday})${includeTime ? ` ${time}` : ''}`
 }
 
-function makeRecordRow(record: Record) {
+function makeRecordRow(record: Record, index: number) {
   if (record.record == null) {
     return <></>
   }
@@ -106,27 +104,25 @@ function makeRecordRow(record: Record) {
   } = record
 
   const sinceLastWeekString = typeof since_last_week === 'string' || !since_last_week
-    ? '-'
-    : `${since_last_week.toFixed(0)}%`
+    ? ''
+    : `（${since_last_week.toFixed(0)}%）`
 
   const estimatedBoxOfficeString = formatEstimatedBoxOffice(estimated_box_office)
 
   return <tr>
-    <td>{formatDate(record_date)}</td>
+    <td>{formatDate(record_date)}<sup><a title="出典" href={url} target='_blank'>[{index}]</a></sup></td>
     <td>{rank ?? '-'}</td>
-    <td>{sales?.toLocaleString() ?? '-'}</td>
-    <td>{sinceLastWeekString ?? '-'}</td>
+    <td>{sales?.toLocaleString() ?? '-'}{sinceLastWeekString}</td>
     <td>{total_seats?.toLocaleString() ?? '-'}</td>
     <td>{shows ?? '-'}</td>
     <td>{theaters ?? '-'}</td>
-    <td><a href={url} target='_blank'>Source</a></td>
     <td>{cumulative_sales?.toLocaleString() ?? '-'}</td>
     <td>{estimatedBoxOfficeString}</td>
   </tr>
 }
 
-function formatEstimatedBoxOffice(estimatedBoxOffice: string | null) {
-  if (typeof estimatedBoxOffice === 'string' || !estimatedBoxOffice) {
+function formatEstimatedBoxOffice(estimatedBoxOffice: number | null) {
+  if (!estimatedBoxOffice) {
     return '-'
   }
 
