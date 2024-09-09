@@ -4,6 +4,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict
 
+import numpy as np
 import pandas as pd
 import zenhan
 
@@ -112,21 +113,6 @@ def clean_text(text) -> str | int | float:
     return clean_text
 
 
-def remove_empties_from_dict(a_dict):
-    """
-    ref. https://stackfame.com/inverse-of-pandas-json_normalize-or-json_denormalize-python-pandas
-    """
-    import numpy as np
-
-    new_dict = {}
-    for k, v in a_dict.items():
-        if isinstance(v, dict):
-            v = remove_empties_from_dict(v)
-        if v is not None and v is not np.nan and v is not '':
-            new_dict[k] = v
-    return new_dict
-
-
 def make_formatted_dict(my_dict, key_arr, val):
     """
     Set val at path in my_dict defined by the string (or serializable object) array key_arr
@@ -137,7 +123,10 @@ def make_formatted_dict(my_dict, key_arr, val):
         key = key_arr[i]
         if key not in current:
             if i == len(key_arr) - 1:
-                current[key] = val
+                if type(val) is not str and np.isnan(val):
+                    current[key] = None
+                else:
+                    current[key] = val
             else:
                 current[key] = {}
         else:
@@ -145,7 +134,7 @@ def make_formatted_dict(my_dict, key_arr, val):
                 print("Given dictionary is not compatible with key structure requested")
                 raise ValueError("Dictionary key already occupied")
         current = current[key]
-    return remove_empties_from_dict(my_dict)
+    return my_dict
 
 
 def df_to_formatted_json(df, sep="."):
