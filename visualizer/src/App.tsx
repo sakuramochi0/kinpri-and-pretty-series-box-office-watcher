@@ -17,6 +17,7 @@ function App() {
     '上映館数',
     'ソース',
     '累積販売数',
+    '推定興行収入',
   ]
 
   const records = data.records
@@ -88,12 +89,16 @@ function makeRecordRow(record: Record) {
 
   const {
     meta: { record_date, url },
-    record: { rank, sales, shows, since_last_week, theaters, total_seats, cumulative_sales }
+    record: { rank, sales, shows, since_last_week, theaters, total_seats, cumulative_sales, estimated_box_office }
   } = record
 
   const sinceLastWeekString = typeof since_last_week === 'string' || !since_last_week
     ? '-'
     : `${since_last_week.toFixed(0)}%`
+
+  const estimatedBoxOfficeString = typeof estimated_box_office === 'string' || !estimated_box_office
+    ? '-'
+    : `${(estimated_box_office / 10_000).toLocaleString('us', {maximumFractionDigits: 0})}万円`
 
   return <tr>
     <td>{formatDate(record_date) ?? '-'}</td>
@@ -105,6 +110,7 @@ function makeRecordRow(record: Record) {
     <td>{theaters ?? '-'}</td>
     <td><a href={url} target='_blank'>Source</a></td>
     <td>{cumulative_sales?.toLocaleString() ?? '-'}</td>
+    <td>{estimatedBoxOfficeString}</td>
   </tr>
 }
 

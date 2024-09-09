@@ -9,6 +9,8 @@ import pandas as pd
 import zenhan
 
 FILM_NAME = 'KING OF PRISM'
+TICKET_PRICE = 1800 # assume all the ticket is normal special ticket price
+
 OUTPUT_FILE_BASENAME = 'kinpri-dramatic-prism-1'
 CSV_FILENAME = f'../data/converted/{OUTPUT_FILE_BASENAME}.csv'
 JSON_FILENAME = f'../data/converted/{OUTPUT_FILE_BASENAME}.json'
@@ -24,6 +26,7 @@ def main():
     df = pd.json_normalize(records)
 
     df['record.cumulative_sales'] = df['record.sales'].cumsum()
+    df['record.estimated_box_office'] = df['record.cumulative_sales'] * TICKET_PRICE
 
     df.to_csv(CSV_FILENAME, index=False)
 
