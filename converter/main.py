@@ -2,13 +2,15 @@ import json
 import re
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, Any
+from typing import Dict
 
-import zenhan
 import pandas as pd
+import zenhan
 
 FILM_NAME = 'KING OF PRISM'
 OUTPUT_FILE_BASENAME = 'kinpri-dramatic-prism-1'
+CSV_FILENAME = f'../data/converted/{OUTPUT_FILE_BASENAME}.csv'
+JSON_FILENAME = f'../data/converted/{OUTPUT_FILE_BASENAME}.json'
 
 
 def main():
@@ -17,18 +19,16 @@ def main():
         print(filename)
         record = pick_up_target_film_record(filename)
         records.append(record)
+    df = pd.json_normalize(records)
+
+    df.to_csv(CSV_FILENAME, index=False)
 
     data = {
         'updated': datetime.now().isoformat(),
-        'records': records,
+        'records': df_to_formatted_json(df),
     }
-
-    new_filename = Path(f'../data/converted/{OUTPUT_FILE_BASENAME}.json')
-    with open(new_filename, 'w') as f:
+    with open(JSON_FILENAME, 'w') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
-
-    df = pd.json_normalize(records)
-    df.to_csv(f'../data/converted/{OUTPUT_FILE_BASENAME}.csv', index=False)
 
 
 def pick_up_target_film_record(filename: Path) -> Dict[str, Dict[str, int | float | str] | None]:
@@ -110,6 +110,56 @@ def clean_text(text) -> str | int | float:
     clean_text = zenhan.z2h(clean_text, mode=zenhan.ASCII | zenhan.DIGIT)
     clean_text = re.sub(r'<div>.+</div>', '', clean_text)  # JavaScript can insert <div> element
     return clean_text
+
+
+def remove_empties_from_dict(a_dict):
+    """
+    ref. https://stackfame.com/inverse-of-pandas-json_normalize-or-json_denormalize-python-pandas
+    """
+    import numpy as np
+
+    new_dict = {}
+    for k, v in a_dict.items():
+        if isinstance(v, dict):
+            v = remove_empties_from_dict(v)
+        if v is not None and v is not np.nan and v is not '':
+            new_dict[k] = v
+    return new_dict
+
+
+def make_formatted_dict(my_dict, key_arr, val):
+    """
+    Set val at path in my_dict defined by the string (or serializable object) array key_arr
+    ref. https://stackfame.com/inverse-of-pandas-json_normalize-or-json_denormalize-python-pandas
+    """
+    current = my_dict
+    for i in range(len(key_arr)):
+        key = key_arr[i]
+        if key not in current:
+            if i == len(key_arr) - 1:
+                current[key] = val
+            else:
+                current[key] = {}
+        else:
+            if type(current[key]) is not dict:
+                print("Given dictionary is not compatible with key structure requested")
+                raise ValueError("Dictionary key already occupied")
+        current = current[key]
+    return remove_empties_from_dict(my_dict)
+
+
+def df_to_formatted_json(df, sep="."):
+    """
+    ref. https://stackfame.com/inverse-of-pandas-json_normalize-or-json_denormalize-python-pandas
+    """
+    result = []
+    for _, row in df.iterrows():
+        parsed_row = {}
+        for idx, val in row.items():
+            keys = idx.split(sep)
+            parsed_row = make_formatted_dict(parsed_row, keys, val)
+        result.append(parsed_row)
+    return result
 
 
 if __name__ == '__main__':
