@@ -1,5 +1,5 @@
 {
-  "updated": "2024-09-09T16:26:02.113220",
+  "updated": "2024-09-09T17:14:08.242755",
   "records": [
     {
       "meta": {
@@ -31,6 +31,7 @@
         "total_seats": 43039.0,
         "shows": 141.0,
         "theaters": 24.0,
+        "since_last_week": "",
         "name": "KING OF PRISM －Dramatic PRISM.1－"
       }
     },
@@ -81,6 +82,7 @@
         "total_seats": 44485.0,
         "shows": 151.0,
         "theaters": 24.0,
+        "since_last_week": "",
         "name": "KING OF PRISM －Dramatic PRISM.1－"
       }
     },
@@ -97,6 +99,7 @@
         "total_seats": 40148.0,
         "shows": 139.0,
         "theaters": 24.0,
+        "since_last_week": "",
         "name": "KING OF PRISM －Dramatic PRISM.1－"
       }
     },
@@ -164,6 +167,7 @@
         "total_seats": 42739.0,
         "shows": 146.0,
         "theaters": 24.0,
+        "since_last_week": "",
         "name": "KING OF PRISM －Dramatic PRISM.1－"
       }
     },
@@ -265,6 +269,7 @@
         "total_seats": 43795.0,
         "shows": 145.0,
         "theaters": 25.0,
+        "since_last_week": "",
         "name": "KING OF PRISM －Dramatic PRISM.1－"
       }
     },
@@ -276,11 +281,13 @@
         "last_updated": "2024-09-07T00:57:00.000Z"
       },
       "record": {
-        "rank": NaN,
-        "sales": NaN,
-        "total_seats": NaN,
-        "shows": NaN,
-        "theaters": NaN
+        "rank": null,
+        "sales": null,
+        "total_seats": null,
+        "shows": null,
+        "theaters": null,
+        "since_last_week": null,
+        "name": null
       }
     },
     {
@@ -308,11 +315,13 @@
         "last_updated": "2024-09-02T00:53:00.000Z"
       },
       "record": {
-        "rank": NaN,
-        "sales": NaN,
-        "total_seats": NaN,
-        "shows": NaN,
-        "theaters": NaN
+        "rank": null,
+        "sales": null,
+        "total_seats": null,
+        "shows": null,
+        "theaters": null,
+        "since_last_week": null,
+        "name": null
       }
     },
     {
@@ -328,6 +337,7 @@
         "total_seats": 23556.0,
         "shows": 78.0,
         "theaters": 24.0,
+        "since_last_week": "",
         "name": "KING OF PRISM －Dramatic PRISM.1－"
       }
     },
@@ -395,6 +405,7 @@
         "total_seats": 22827.0,
         "shows": 74.0,
         "theaters": 23.0,
+        "since_last_week": "",
         "name": "KING OF PRISM －Dramatic PRISM.1－"
       }
     },
@@ -411,6 +422,7 @@
         "total_seats": 36265.0,
         "shows": 130.0,
         "theaters": 24.0,
+        "since_last_week": "",
         "name": "KING OF PRISM －Dramatic PRISM.1－"
       }
     },
@@ -478,6 +490,7 @@
         "total_seats": 40904.0,
         "shows": 143.0,
         "theaters": 25.0,
+        "since_last_week": "",
         "name": "KING OF PRISM －Dramatic PRISM.1－"
       }
     },
@@ -596,6 +609,7 @@
         "total_seats": 37021.0,
         "shows": 134.0,
         "theaters": 25.0,
+        "since_last_week": "",
         "name": "KING OF PRISM －Dramatic PRISM.1－"
       }
     },
@@ -612,6 +626,7 @@
         "total_seats": 45241.0,
         "shows": 155.0,
         "theaters": 25.0,
+        "since_last_week": "",
         "name": "KING OF PRISM －Dramatic PRISM.1－"
       }
     },
@@ -679,6 +694,7 @@
         "total_seats": 60577.0,
         "shows": 212.0,
         "theaters": 25.0,
+        "since_last_week": "",
         "name": "KING OF PRISM －Dramatic PRISM.1－"
       }
     },
@@ -746,6 +762,7 @@
         "total_seats": 38507.0,
         "shows": 136.0,
         "theaters": 24.0,
+        "since_last_week": "",
         "name": "KING OF PRISM －Dramatic PRISM.1－"
       }
     },
@@ -791,11 +808,13 @@
         "last_updated": "2024-09-09T00:52:00.000Z"
       },
       "record": {
-        "rank": NaN,
-        "sales": NaN,
-        "total_seats": NaN,
-        "shows": NaN,
-        "theaters": NaN
+        "rank": null,
+        "sales": null,
+        "total_seats": null,
+        "shows": null,
+        "theaters": null,
+        "since_last_week": null,
+        "name": null
       }
     },
     {
@@ -806,11 +825,13 @@
         "last_updated": "2024-09-09T00:53:00.000Z"
       },
       "record": {
-        "rank": NaN,
-        "sales": NaN,
-        "total_seats": NaN,
-        "shows": NaN,
-        "theaters": NaN
+        "rank": null,
+        "sales": null,
+        "total_seats": null,
+        "shows": null,
+        "theaters": null,
+        "since_last_week": null,
+        "name": null
       }
     },
     {
@@ -923,11 +944,13 @@
         "last_updated": "2024-09-05T00:52:00.000Z"
       },
       "record": {
-        "rank": NaN,
-        "sales": NaN,
-        "total_seats": NaN,
-        "shows": NaN,
-        "theaters": NaN
+        "rank": null,
+        "sales": null,
+        "total_seats": null,
+        "shows": null,
+        "theaters": null,
+        "since_last_week": null,
+        "name": null
       }
     },
     {
@@ -1011,6 +1034,7 @@
         "total_seats": 39263.0,
         "shows": 140.0,
         "theaters": 25.0,
+        "since_last_week": "",
         "name": "KING OF PRISM －Dramatic PRISM.1－"
       }
     },
@@ -1027,6 +1051,7 @@
         "total_seats": 43495.0,
         "shows": 150.0,
         "theaters": 25.0,
+        "since_last_week": "",
         "name": "KING OF PRISM －Dramatic PRISM.1－"
       }
     },
@@ -1043,6 +1068,7 @@
         "total_seats": 59092.0,
         "shows": 204.0,
         "theaters": 24.0,
+        "since_last_week": "",
         "name": "KING OF PRISM －Dramatic PRISM.1－"
       }
     },
@@ -1054,11 +1080,13 @@
         "last_updated": "2024-09-05T00:53:00.000Z"
       },
       "record": {
-        "rank": NaN,
-        "sales": NaN,
-        "total_seats": NaN,
-        "shows": NaN,
-        "theaters": NaN
+        "rank": null,
+        "sales": null,
+        "total_seats": null,
+        "shows": null,
+        "theaters": null,
+        "since_last_week": null,
+        "name": null
       }
     }
   ]
