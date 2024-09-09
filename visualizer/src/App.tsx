@@ -28,27 +28,27 @@ function App() {
 
   return (
     <>
-      <h1>『KING OF PRISM -Dramatic PRISM.1-』の販売座席数と興行収入</h1>
+      <h1>📊プリティーシリーズの映画の座席販売数・興行収入</h1>
       <p>
         最終更新日時: {formatDate(data.updated + 'Z', true)}
       </p>
       <p>
-        このページは、<a target="_blank" href="https://mimorin2014.com/">興行収入を見守りたい！</a>さんが公開している座席販売数のデータをもとに、<a
-        target="_blank" href="https://www.takaratomy-arts.co.jp/specials/prettyseries/">プリティーシリーズ</a>の映画の座席販売数・興行収入の変化を表やグラフで確認できるようにしたページです。販売座席数のテーブルは1日1回自動更新されます。現在は『<a
+        このウェブページは、「<a target="_blank" href="https://mimorin2014.com/">興行収入を見守りたい！</a>」さんが公開している座席販売数のデータをもとに、「KING
+        OF PRISM（キンプリ）」を含む「<a
+        target="_blank" href="https://www.takaratomy-arts.co.jp/specials/prettyseries/">プリティーシリーズ</a>」の映画の座席販売数・興行収入の変化を表やグラフで確認できるようにしたものです。販売座席数のテーブルは1日1回自動更新されます。現在は『<a
         href="https://kinpri.com/">KING OF PRISM -Dramatic PRISM.1-</a>』に対応しています。
+      </p>
+      <p>
+        <strong>注意：</strong>元データに当日ランキング上位25位までの映画しか掲載されないため、一部26位以下の日のデータが欠けています。これにより、推定興行収入やグラフが不完全な形になっています。
       </p>
       <h2>最新データ</h2>
       <ul>
-        <dl>
-          <dt>日付</dt>
-          <dd>{formatDate(lastRecord.meta.record_date)}</dd>
-          <dt>販売座席数（先週比）</dt>
-          <dd>{lastRecord.record.sales}座席（{lastRecord.record.since_last_week}%）</dd>
-          <dt>累積販売数</dt>
-          <dd>{lastRecord.record.cumulative_sales?.toLocaleString()}座席</dd>
-          <dt>推定興行収入</dt>
-          <dd>{formatEstimatedBoxOffice(lastRecord.record.estimated_box_office)}</dd>
-        </dl>
+        <ul>
+          <li>日付：{formatDate(lastRecord.meta.record_date)}</li>
+          <li>販売座席数（先週比）：{lastRecord.record.sales}座席（{lastRecord.record.since_last_week}%）</li>
+          <li>累積販売数：{lastRecord.record.cumulative_sales?.toLocaleString()}座席</li>
+          <li>推定興行収入：{formatEstimatedBoxOffice(lastRecord.record.estimated_box_office)}</li>
+        </ul>
       </ul>
       <h2>座席販売数と先週比のグラフ（仮）</h2>
       <iframe width="900" height="540"
@@ -132,7 +132,7 @@ function formatEstimatedBoxOffice(estimatedBoxOffice: string | null) {
     return '-'
   }
 
-   return `${(estimatedBoxOffice / 10_000).toLocaleString('us', {maximumFractionDigits: 0})}万円`
+  return `${(estimatedBoxOffice / 10_000).toLocaleString('us', { maximumFractionDigits: 0 })}万円`
 }
 
 export default App
