@@ -87,7 +87,7 @@ function makeRecordRow(record: Record) {
 
   const {
     meta: { record_date, url },
-    record: { rank, sales, shows, since_last_week, theaters, total_seats }
+    record: { rank, sales, shows, since_last_week, theaters, total_seats, cumulative_sales }
   } = record
 
   const sinceLastWeekString = typeof since_last_week === 'string' || !since_last_week
@@ -103,6 +103,7 @@ function makeRecordRow(record: Record) {
     <td>{theaters ?? '-'}</td>
     <td>{sinceLastWeekString ?? '-'}</td>
     <td><a href={url} target='_blank'>Source</a></td>
+    <td>{cumulative_sales?.toLocaleString() ?? '-'}</td>
   </tr>
 }
 
