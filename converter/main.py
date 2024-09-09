@@ -27,7 +27,8 @@ def main():
     with open(new_filename, 'w') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
-    pd.json_normalize(records).to_csv(f'../data/converted/{OUTPUT_FILE_BASENAME}.csv', index=False)
+    df = pd.json_normalize(records)
+    df.to_csv(f'../data/converted/{OUTPUT_FILE_BASENAME}.csv', index=False)
 
 
 def pick_up_target_film_record(filename: Path) -> Dict[str, Dict[str, int | float | str] | None]:
