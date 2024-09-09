@@ -11,11 +11,12 @@ function App() {
     '日付',
     '順位',
     '販売座席数',
+    '(先週比)',
     '合計座席数',
     '上映回数',
     '上映館数',
-    '先週比販売座席数数',
-    'ソース'
+    'ソース',
+    '累積販売数',
   ]
 
   const records = data.records
@@ -98,10 +99,10 @@ function makeRecordRow(record: Record) {
     <td>{formatDate(record_date) ?? '-'}</td>
     <td>{rank ?? '-'}</td>
     <td>{sales?.toLocaleString() ?? '-'}</td>
+    <td>{sinceLastWeekString ?? '-'}</td>
     <td>{total_seats?.toLocaleString() ?? '-'}</td>
     <td>{shows ?? '-'}</td>
     <td>{theaters ?? '-'}</td>
-    <td>{sinceLastWeekString ?? '-'}</td>
     <td><a href={url} target='_blank'>Source</a></td>
     <td>{cumulative_sales?.toLocaleString() ?? '-'}</td>
   </tr>
