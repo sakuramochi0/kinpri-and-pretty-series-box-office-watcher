@@ -17,9 +17,10 @@ JSON_FILENAME = f'../data/converted/{OUTPUT_FILE_BASENAME}.json'
 def main():
     records = []
     for filename in Path('../data/raw/').glob('*.json'):
-        print(filename)
-        record = pick_up_target_film_record(filename)
-        records.append(record)
+        if '（独立系を含む）デイリー合算ランキング' in filename.name:
+            print(filename)
+            record = pick_up_target_film_record(filename)
+            records.append(record)
     df = pd.json_normalize(records)
 
     df.to_csv(CSV_FILENAME, index=False)
