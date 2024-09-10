@@ -58,10 +58,12 @@ function App() {
         </div>
       </div>
       <h2>座席販売数と先週比のグラフ（仮）</h2>
-      <iframe width="900" height="540"
-              src='https://docs.google.com/spreadsheets/d/e/2PACX-1vQK4EQdeuxlXz1Iy3RDWbAP0v1KYJDpFMWVGr6wguoPRl-9kMa5LA_ZaJcBM8uEHKKB1WLH38ZgpWOj/pubchart?oid=1244534495&format=interactive'></iframe>
+      <div className="chart">
+        <iframe
+          src='https://docs.google.com/spreadsheets/d/e/2PACX-1vQK4EQdeuxlXz1Iy3RDWbAP0v1KYJDpFMWVGr6wguoPRl-9kMa5LA_ZaJcBM8uEHKKB1WLH38ZgpWOj/pubchart?oid=1244534495&format=interactive'></iframe>
+      </div>
       <h2>データテーブル</h2>
-      <div className="card">
+      <div className="table">
         <table>
           <thead>
           <tr>
