@@ -41,10 +41,21 @@ function App() {
       </p>
       <h2>最新データ</h2>
       <div id="latest-data">
-        <div>日付<br/>{formatDate(lastRecord.meta.record_date)}</div>
-        <div>販売座席数（先週比）<br/>{lastRecord.record.sales}座席（{lastRecord.record.since_last_week}%）</div>
-        <div>累積販売数<br/>{lastRecord.record.cumulative_sales?.toLocaleString()}座席</div>
-        <div>推定興行収入<br/>{formatEstimatedBoxOffice(lastRecord.record.estimated_box_office)}</div>
+        <div>
+          日付<br/>
+          <span className="value">{formatDate(lastRecord.meta.record_date)}</span></div>
+        <div>
+          販売座席数（先週比）<br/>
+          <span className="value">{lastRecord.record.sales}</span>座席（{lastRecord.record.since_last_week}%）
+        </div>
+        <div>
+          累積販売数<br/>
+          <span className="value">{lastRecord.record.cumulative_sales?.toLocaleString()}</span>座席
+        </div>
+        <div>
+          推定興行収入<br/>
+          <span className="value">{formatEstimatedBoxOffice(lastRecord.record.estimated_box_office)}</span>
+        </div>
       </div>
       <h2>座席販売数と先週比のグラフ（仮）</h2>
       <iframe width="900" height="540"

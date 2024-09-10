@@ -9,12 +9,16 @@ body {
 }
 
 #latest-data {
-  display: inline-flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  .value {
+    font-size: 1.5rem;
+    margin-inline-end: 0.5rem;
+  }
 
   & > div {
     list-style: none;
-    font-size: larger;
     width: 20rem;
     margin: 0.5rem;
     padding: 0.5rem;
