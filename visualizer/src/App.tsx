@@ -34,7 +34,7 @@ function App() {
         このウェブページは、「<a target="_blank" href="https://mimorin2014.com/">興行収入を見守りたい！</a>」さんが公開している座席販売数のデータをもとに、「KING
         OF PRISM（キンプリ）」を含む「<a
         target="_blank" href="https://www.takaratomy-arts.co.jp/specials/prettyseries/">プリティーシリーズ</a>」の映画の座席販売数・興行収入の変化を表やグラフで確認できるようにしたものです。販売座席数のテーブルは1日1回自動更新されます。現在は『<a
-        href="https://kinpri.com/">KING OF PRISM -Dramatic PRISM.1-</a>』に対応しています。
+        target="_blank"  href="https://kinpri.com/">KING OF PRISM -Dramatic PRISM.1-</a>』に対応しています。
       </p>
       <p>
         <strong>注意：</strong>元データに当日ランキング上位25位までの映画のデータしか掲載されないため、26位以下の日のデータが欠けていて、推定興行収入やグラフが不完全な形になっています。
