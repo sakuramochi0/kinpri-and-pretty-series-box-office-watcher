@@ -18,11 +18,11 @@ function App() {
     '推定興行収入',
   ]
 
-  const records = data.records
+  const records: Record[] = data.records
     .sort((r1, r2) => r1.meta.record_date > r2.meta.record_date ? 1 : -1)
     .filter(r => r.meta.title.startsWith('（独立系を含む）デイリー合算ランキング'))
 
-  const lastRecord = records.slice(-1)[0]
+  const lastRecord = records.filter(r=>r.record.sales !== null).slice(-1)[0]
 
   return (
     <>
