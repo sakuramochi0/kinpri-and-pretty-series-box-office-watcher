@@ -70,7 +70,7 @@ function App() {
         <table>
           <thead>
           <tr>
-            {headers.map(header => <th>{header}</th>)}
+            {headers.map((header, index) => <th key={index}>{header}</th>)}
           </tr>
           </thead>
           <tbody>
@@ -125,7 +125,7 @@ function makeRecordRow(record: Record, index: number) {
 
   const estimatedBoxOfficeString = formatEstimatedBoxOffice(estimated_box_office)
 
-  return <tr>
+  return <tr key={index}>
     <td>{formatDate(record_date)}<sup><a title="出典" href={url} target='_blank'>[{index}]</a></sup></td>
     <td>{rank ?? '-'}</td>
     <td>{sales?.toLocaleString() ?? '-'}{sinceLastWeekString}</td>
