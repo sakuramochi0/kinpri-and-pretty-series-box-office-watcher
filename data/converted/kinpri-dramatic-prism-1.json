@@ -1,5 +1,5 @@
 {
-  "updated": "2024-09-15T16:16:29.366639",
+  "updated": "2024-09-16T16:18:27.263103",
   "records": [
     {
       "meta": {
@@ -588,6 +588,25 @@
         "name": "KING OF PRISM －Dramatic PRISM.1－",
         "cumulative_sales": 57647.0,
         "estimated_box_office": 103764600.0
+      }
+    },
+    {
+      "meta": {
+        "url": "https://mimorin2014.com/blog-entry-47191.html",
+        "title": "（独立系を含む）デイリー合算ランキング：20240916(月)",
+        "record_date": "2024-09-16T00:00:00",
+        "last_updated": "2024-09-17T00:53:00.000Z"
+      },
+      "record": {
+        "rank": 22.0,
+        "sales": 1673.0,
+        "total_seats": 8360.0,
+        "shows": 39.0,
+        "theaters": 22.0,
+        "since_last_week": 236.6,
+        "name": "KING OF PRISM －Dramatic PRISM.1－",
+        "cumulative_sales": 59320.0,
+        "estimated_box_office": 106776000.0
       }
     }
   ]
