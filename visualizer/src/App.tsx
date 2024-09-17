@@ -3,8 +3,9 @@ import './assets/pico.classless.orange.min.css'
 import './App.css'
 
 import data from '../../data/converted/kinpri-dramatic-prism-1.json'
+import { formatDate } from './utils.ts';
+import { Record } from './types';
 
-type Record = typeof data.records[0]
 
 function App() {
   const headers = [
@@ -97,16 +98,6 @@ function App() {
       </footer>
     </>
   )
-}
-
-function formatDate(dateString: string, includeTime: Boolean = false) {
-  const date = new Date(dateString);
-  const day = new Intl.DateTimeFormat('ja-JP', { dateStyle: 'short' }).format(date)
-  const weekday = new Intl.DateTimeFormat('ja-JP', { weekday: 'short' }).format(date)
-  const time = new Intl.DateTimeFormat('ja', {
-    timeStyle: 'long'
-  }).format(date)
-  return `${day}(${weekday})${includeTime ? ` ${time}` : ''}`
 }
 
 function makeRecordRow(record: Record, index: number) {
