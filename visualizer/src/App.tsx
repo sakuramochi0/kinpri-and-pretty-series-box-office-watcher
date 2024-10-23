@@ -1,5 +1,6 @@
-import './assets/pico.classless.orange.min.css'
+import { SalesChart } from './SalesChart.tsx'
 
+import './assets/pico.classless.orange.min.css'
 import './App.css'
 
 import data from '../../data/converted/kinpri-dramatic-prism-1.json'
@@ -64,11 +65,7 @@ function App() {
           <span className="value">{formatEstimatedBoxOffice(lastRecord.record.estimated_box_office)}</span>
         </div>
       </div>
-      <h2>座席販売数と先週比のグラフ（仮）</h2>
-      <div className="chart">
-        <iframe
-          src='https://docs.google.com/spreadsheets/d/e/2PACX-1vQK4EQdeuxlXz1Iy3RDWbAP0v1KYJDpFMWVGr6wguoPRl-9kMa5LA_ZaJcBM8uEHKKB1WLH38ZgpWOj/pubchart?oid=1244534495&format=interactive'></iframe>
-      </div>
+      <SalesChart records={records}/>
       <h2>データテーブル</h2>
       <div className="table">
         <table>
@@ -82,19 +79,13 @@ function App() {
           </tbody>
         </table>
       </div>
+      <hr/>
       <footer>
         <ul>
           <li>
             ソースコード:{' '}
             <a href="https://github.com/sakuramochi0/kinpri-and-pretty-series-box-office-watcher">
               sakuramochi0/kinpri-and-pretty-series-box-office-watcher
-            </a>
-          </li>
-          <li>
-            埋め込みグラフ（仮）:{' '}
-            <a
-              href="https://docs.google.com/spreadsheets/d/1fG0GpgVOnwaFCuwKsP_6qh06lW6V9Z_vcY0irF4Cw6s/edit?gid=1434128340#gid=1434128340">
-              『KING OF PRISM -Dramatic PRISM.1-』販売座席数 - Google スプレッドシート
             </a>
           </li>
         </ul>
