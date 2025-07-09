@@ -1,5 +1,5 @@
 {
-  "updated": "2025-07-08T16:20:59.138517",
+  "updated": "2025-07-09T16:19:49.637579",
   "records": [
     {
       "meta": {
@@ -6022,6 +6022,25 @@
         "name": "KING OF PRISM Your Endless Call ルート2",
         "cumulative_sales": 146845.0,
         "estimated_box_office": 264321000.0
+      }
+    },
+    {
+      "meta": {
+        "url": "https://mimorin2014.com/blog-entry-49428.html",
+        "title": "（独立系を含む）デイリー合算ランキング：20250709(水)",
+        "record_date": "2025-07-09T00:00:00",
+        "last_updated": "2025-07-10T00:53:00.000Z"
+      },
+      "record": {
+        "rank": 16.0,
+        "sales": 2931.0,
+        "total_seats": 23180.0,
+        "shows": 123.0,
+        "theaters": 39.0,
+        "since_last_week": "",
+        "name": "KING OF PRISM Your Endless Call ルート2",
+        "cumulative_sales": 149776.0,
+        "estimated_box_office": 269596800.0
       }
     }
   ]
