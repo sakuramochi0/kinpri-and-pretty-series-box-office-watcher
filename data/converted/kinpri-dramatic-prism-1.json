@@ -1,5 +1,5 @@
 {
-  "updated": "2025-08-13T16:17:08.250103",
+  "updated": "2025-08-14T16:21:50.096811",
   "records": [
     {
       "meta": {
@@ -6706,6 +6706,25 @@
         "name": "「SideM」ダイジェスト付き KING OF PRISM ルート3 奇跡のクイーン",
         "cumulative_sales": 240710.0,
         "estimated_box_office": 433278000.0
+      }
+    },
+    {
+      "meta": {
+        "url": "https://mimorin2014.com/blog-entry-49701.html",
+        "title": "（独立系を含む）デイリー合算ランキング：20250814(木)",
+        "record_date": "2025-08-14T00:00:00",
+        "last_updated": "2025-08-15T00:53:00.000Z"
+      },
+      "record": {
+        "rank": 19.0,
+        "sales": 2156.0,
+        "total_seats": 5997.0,
+        "shows": 28.0,
+        "theaters": 17.0,
+        "since_last_week": "",
+        "name": "「SideM」ダイジェスト付き KING OF PRISM ルート3 奇跡のクイーン",
+        "cumulative_sales": 242866.0,
+        "estimated_box_office": 437158800.0
       }
     }
   ]
