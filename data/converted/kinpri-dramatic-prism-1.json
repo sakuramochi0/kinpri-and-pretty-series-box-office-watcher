@@ -1,5 +1,5 @@
 {
-  "updated": "2025-08-22T16:19:12.579076",
+  "updated": "2025-08-23T16:18:10.568952",
   "records": [
     {
       "meta": {
@@ -6877,6 +6877,25 @@
         "name": "も～っとつながる!KING OF PRISM ルート1 われらが青春",
         "cumulative_sales": 256773.0,
         "estimated_box_office": 462191400.0
+      }
+    },
+    {
+      "meta": {
+        "url": "https://mimorin2014.com/blog-entry-49770.html",
+        "title": "（独立系を含む）デイリー合算ランキング：20250823(土)",
+        "record_date": "2025-08-23T00:00:00",
+        "last_updated": "2025-08-24T00:53:00.000Z"
+      },
+      "record": {
+        "rank": 13.0,
+        "sales": 5206.0,
+        "total_seats": 12999.0,
+        "shows": 100.0,
+        "theaters": 46.0,
+        "since_last_week": "",
+        "name": "も～っとつながる!KING OF PRISM ルート1 われらが青春",
+        "cumulative_sales": 261979.0,
+        "estimated_box_office": 471562200.0
       }
     }
   ]
