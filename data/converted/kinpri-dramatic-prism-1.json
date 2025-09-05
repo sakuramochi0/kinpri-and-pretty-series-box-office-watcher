@@ -1,5 +1,5 @@
 {
-  "updated": "2025-09-04T16:20:34.647391",
+  "updated": "2025-09-05T16:19:28.739852",
   "records": [
     {
       "meta": {
@@ -7124,6 +7124,25 @@
         "name": "も～っとつながる!KING OF PRISM ルート2 伝説のキングカップ",
         "cumulative_sales": 287995.0,
         "estimated_box_office": 518391000.0
+      }
+    },
+    {
+      "meta": {
+        "url": "https://mimorin2014.com/blog-entry-49867.html",
+        "title": "（独立系を含む）デイリー合算ランキング：20250905(金)",
+        "record_date": "2025-09-05T00:00:00",
+        "last_updated": "2025-09-06T00:53:00.000Z"
+      },
+      "record": {
+        "rank": 17.0,
+        "sales": 1928.0,
+        "total_seats": 6491.0,
+        "shows": 48.0,
+        "theaters": 38.0,
+        "since_last_week": "",
+        "name": "も～っとつながる!KING OF PRISM ルート3 奇跡のクイーンカップ",
+        "cumulative_sales": 289923.0,
+        "estimated_box_office": 521861400.0
       }
     }
   ]
