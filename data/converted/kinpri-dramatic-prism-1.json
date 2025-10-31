@@ -1,5 +1,5 @@
 {
-  "updated": "2025-10-30T16:21:07.658511",
+  "updated": "2025-10-31T16:20:02.713993",
   "records": [
     {
       "meta": {
@@ -8177,6 +8177,25 @@
         "title": "（独立系を含む）デイリー合算ランキング：20251030(木)",
         "record_date": "2025-10-30T00:00:00",
         "last_updated": "2025-10-31T00:53:00.000Z"
+      },
+      "record": {
+        "rank": null,
+        "sales": null,
+        "total_seats": null,
+        "shows": null,
+        "theaters": null,
+        "since_last_week": null,
+        "name": null,
+        "cumulative_sales": null,
+        "estimated_box_office": null
+      }
+    },
+    {
+      "meta": {
+        "url": "https://mimorin2014.com/blog-entry-50291.html",
+        "title": "（独立系を含む）デイリー合算ランキング：20251031(金)",
+        "record_date": "2025-10-31T00:00:00",
+        "last_updated": "2025-11-01T00:53:00.000Z"
       },
       "record": {
         "rank": null,
