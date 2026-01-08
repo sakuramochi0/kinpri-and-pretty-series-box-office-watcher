@@ -1,5 +1,5 @@
 {
-  "updated": "2026-01-05T16:23:13.321228",
+  "updated": "2026-01-08T16:24:59.660662",
   "records": [
     {
       "meta": {
@@ -9366,6 +9366,44 @@
         "name": null,
         "cumulative_sales": null,
         "estimated_box_office": null
+      }
+    },
+    {
+      "meta": {
+        "url": "https://mimorin2014.com/blog-entry-50807.html",
+        "title": "（独立系を含む）デイリー合算ランキング：20260107(水)",
+        "record_date": "2026-01-07T00:00:00",
+        "last_updated": "2026-01-08T00:53:00.000Z"
+      },
+      "record": {
+        "rank": null,
+        "sales": null,
+        "total_seats": null,
+        "shows": null,
+        "theaters": null,
+        "since_last_week": null,
+        "name": null,
+        "cumulative_sales": null,
+        "estimated_box_office": null
+      }
+    },
+    {
+      "meta": {
+        "url": "https://mimorin2014.com/blog-entry-50814.html",
+        "title": "（独立系を含む）デイリー合算ランキング：20260108(木)",
+        "record_date": "2026-01-08T00:00:00",
+        "last_updated": "2026-01-09T00:53:00.000Z"
+      },
+      "record": {
+        "rank": 19.0,
+        "sales": 1297.0,
+        "total_seats": 4421.0,
+        "shows": 15.0,
+        "theaters": 15.0,
+        "since_last_week": "",
+        "name": "KING OF PRISM Your Endless Call ルート5",
+        "cumulative_sales": 304149.0,
+        "estimated_box_office": 547468200.0
       }
     }
   ]
