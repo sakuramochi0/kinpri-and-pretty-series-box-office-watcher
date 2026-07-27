@@ -88,6 +88,9 @@ function App() {
               sakuramochi0/kinpri-and-pretty-series-box-office-watcher
             </a>
           </li>
+          <li>
+            このページではアクセス分析を行っています。アクセスデータはさくらもちのサーバーにのみ送信され、外部には提供されません。
+          </li>
         </ul>
       </footer>
     </>
