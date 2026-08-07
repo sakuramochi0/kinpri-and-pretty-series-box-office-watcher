@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-05T17:24:45.641322",
+  "updated": "2026-08-07T16:49:27.624670",
   "records": [
     {
       "meta": {
@@ -12528,6 +12528,44 @@
         "title": "（独立系を含む）デイリー合算ランキング：20260805(水)",
         "record_date": "2026-08-05T00:00:00",
         "last_updated": "2026-08-06T00:50:00.000Z"
+      },
+      "record": {
+        "rank": null,
+        "sales": null,
+        "total_seats": null,
+        "shows": null,
+        "theaters": null,
+        "since_last_week": null,
+        "name": null,
+        "cumulative_sales": null,
+        "estimated_box_office": null
+      }
+    },
+    {
+      "meta": {
+        "url": "https://mimorin2014.com/blog-entry-52404.html",
+        "title": "（独立系を含む）デイリー合算ランキング：20260806(木)",
+        "record_date": "2026-08-06T00:00:00",
+        "last_updated": "2026-08-07T00:50:00.000Z"
+      },
+      "record": {
+        "rank": null,
+        "sales": null,
+        "total_seats": null,
+        "shows": null,
+        "theaters": null,
+        "since_last_week": null,
+        "name": null,
+        "cumulative_sales": null,
+        "estimated_box_office": null
+      }
+    },
+    {
+      "meta": {
+        "url": "https://mimorin2014.com/blog-entry-52411.html",
+        "title": "（独立系を含む）デイリー合算ランキング：20260807(金)",
+        "record_date": "2026-08-07T00:00:00",
+        "last_updated": "2026-08-08T00:50:00.000Z"
       },
       "record": {
         "rank": null,
